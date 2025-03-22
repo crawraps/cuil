@@ -1,0 +1,19 @@
+{
+  "name": "cuil",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "check": "biome check --write",
+    "dev": "rsbuild dev",
+    "format": "biome format --write",
+    "preview": "rsbuild preview"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@rsbuild/core": "^1.2.16",
+    "@rsbuild/plugin-sass": "^1.2.2",
+    "typescript": "^5.8.2"
+  }
+}

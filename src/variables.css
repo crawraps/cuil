@@ -1,0 +1,32 @@
+body {
+  --cuil-radius: 0.5em;
+  --cuil-animation-scale: 1;
+
+  --cuil-primary: #ccccff;
+  --cuil-secondary: #af7ac5;
+  --cuil-highlight: #fff176;
+
+  --cuil-text: #111111;
+  --cuil-text-accent: #37376e;
+  --cuil-text-dimmed: #565656;
+
+  --cuil-background: #f9f9f9;
+  --cuil-background-vivid: #ffffff;
+  --cuil-background-dimmed: #dddddd;
+
+  --cuil-valid: #82e0aa;
+  --cuil-text-valid: #356e4d;
+
+  --cuil-danger: #e74c3c;
+  --cuil-text-danger: #e74c3c;
+}
+
+body[dark] {
+  --cuil-text: #f1f1f1;
+  --cuil-text-accent: #cacaf6;
+  --cuil-text-dimmed: #565656;
+
+  --cuil-background: #333333;
+  --cuil-background-vivid: #222222;
+  --cuil-background-dimmed: #555555;
+}

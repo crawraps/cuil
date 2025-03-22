@@ -1,0 +1,570 @@
+@use "sass:math";
+@import "./fonts";
+
+$prefix: "";
+
+$class-prefix: "";
+
+@if $prefix !="" {
+  $class-prefix: ".#{prefix}-";
+}
+
+$cuil-radius: var(--cuil-radius, 0.5em);
+$cuil-radius-sm: calc($cuil-radius * 0.5);
+$cuil-animation-scale: var(--cuil-animation-scale, 1);
+
+$cuil-text: var(--cuil-text, #333);
+$cuil-text-accent: var(--cuil-text-accent, #37376e);
+$cuil-text-dimmed: var(--cuil-text-dimmed, #565656);
+
+$cuil-primary: var(--cuil-primary, #cc0000);
+$cuil-secondary: var(--cuil-secondary, #af7ac5);
+$cuil-highlight: var(--cuil-highlight, #fff176);
+
+$cuil-valid: var(--cuil-valid, #82e0aa);
+$cuil-text-valid: var(--cuil-text-valid, #356e4d);
+
+$cuil-danger: var(--cuil-danger, #e74c3c);
+$cuil-text-danger: var(--cuil-text-danger, #e74c3c);
+
+$cuil-background: var(--cuil-background, #f5f5f5);
+$cuil-background-vivid: var(--cuil-background-vivid, #ffffff);
+$cuil-background-dimmed: var(--cuil-background-dimmed, #565656);
+
+body {
+  line-height: 1.6;
+  color: $cuil-text;
+}
+
+#{$class-prefix}h1,
+#{$class-prefix}h2,
+#{$class-prefix}h3,
+#{$class-prefix}h4,
+#{$class-prefix}h5,
+#{$class-prefix}h6 {
+  color: $cuil-text;
+  font-family: "Raleway", sans-serif;
+}
+
+#{$class-prefix}h1 {
+  font-weight: 600;
+  font-size: 2.5em;
+  margin-block-start: 1em;
+  margin-block-end: 0.75em;
+}
+
+#{$class-prefix}h2 {
+  font-weight: 500;
+  font-size: 1.75em;
+  margin-block-start: 1em;
+  margin-block-end: 0.5em;
+}
+
+#{$class-prefix}h3 {
+  font-weight: 800;
+  font-size: 1.25em;
+  margin-block-start: 1em;
+  margin-block-end: 0.75em;
+}
+
+#{$class-prefix}h4,
+#{$class-prefix}h5,
+#{$class-prefix}h6 {
+  font-weight: 700;
+  font-size: 1em;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.25em;
+}
+
+#{$class-prefix}h5 {
+  font-weight: 600;
+}
+
+#{$class-prefix}h6 {
+  font-weight: 500;
+}
+
+#{$class-prefix}p {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.65;
+  margin-block-start: 1.25em;
+  margin-block-end: 1.25em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
+#{$class-prefix}blockquote {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.65;
+  margin-block-start: 1.25em;
+  margin-block-end: 1.25em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  position: relative;
+
+  &::before {
+    content: "";
+    height: calc(100% + 1em);
+    top: -0.5em;
+    left: -1.5em;
+    position: absolute;
+    width: 4px;
+    border-radius: $cuil-radius;
+    background-color: $cuil-primary;
+  }
+}
+
+#{$class-prefix}pre {
+  font-family:
+    Kode Mono,
+    monospace;
+}
+
+#{$class-prefix}code {
+  display: inline-block;
+  background-color: #373737;
+  font-family:
+    Kode Mono,
+    monospace;
+  font-weight: 500;
+  color: #fff;
+  border-radius: $cuil-radius-sm;
+  padding: 0.25em 0.5em;
+}
+
+#{$class-prefix}hr {
+  background-color: $cuil-text;
+  border: none;
+  height: 2px;
+  border-radius: $cuil-radius-sm;
+  margin-block-start: 1.5em;
+  margin-block-end: 1.5em;
+}
+
+#{$class-prefix}mark {
+  background-color: $cuil-highlight;
+  border-radius: $cuil-radius-sm;
+  padding: 0.25em;
+  margin: -0.25em 0;
+}
+
+#{$class-prefix}sub,
+#{$class-prefix}sup {
+  line-height: 0;
+  font-size: 0.75em;
+}
+
+#{$class-prefix}ul,
+#{$class-prefix}menu,
+#{$class-prefix}ol {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  padding-left: 1.5em;
+}
+
+dl {
+  #{$class-prefix}dt {
+    font-weight: 600;
+  }
+
+  #{$class-prefix}dd {
+    margin-left: 1.5em;
+  }
+}
+
+#{$class-prefix}img {
+  border-radius: $cuil-radius;
+  font-size: 0.875em;
+  color: $cuil-text;
+}
+
+figure #{$class-prefix}figcaption {
+  font-size: 0.875em;
+  color: $cuil-text-dimmed;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.875em;
+}
+
+#{$class-prefix}a {
+  text-decoration: none;
+  color: $cuil-text-accent;
+  font-weight: 500;
+  padding: 0.25em;
+  margin: -0.25em;
+  position: relative;
+
+  &:focus,
+  &:focus-visible {
+    background-color: $cuil-primary;
+    border-radius: $cuil-radius-sm;
+    outline: none;
+    transition: background-color calc(0.1s * $cuil-animation-scale);
+  }
+
+  &:hover {
+    background-image: linear-gradient(30deg,
+        $cuil-text-accent 0%,
+        $cuil-text-valid 50%,
+        $cuil-text-accent 100%);
+    background-size: 600% 600%;
+    background-repeat: no-repeat;
+    background-position: 0% 100%;
+
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition: font-weight calc(0.2s * $cuil-animation-scale);
+    animation: cuil-background-translate calc(2s * $cuil-animation-scale) infinite;
+  }
+}
+
+#{$class-prefix}label:has(input) {
+  cursor: pointer;
+}
+
+#{$class-prefix}label:has(input[error]) {
+  color: $cuil-danger;
+  transition: color calc(0.2s * $cuil-animation-scale);
+}
+
+#{$class-prefix}input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="range"]),
+#{$class-prefix}textarea {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  box-sizing: border-box;
+  padding: 0.625em 1em;
+  border-radius: $cuil-radius;
+  border: none;
+  color: $cuil-text;
+  outline: none;
+  box-shadow: 0px 0px 4px 0px $cuil-background-vivid;
+  background-color: $cuil-background-vivid;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  transition: box-shadow calc(0.2s * $cuil-animation-scale);
+
+  &::placeholder {
+    color: $cuil-text-dimmed;
+    font-size: 0.875em;
+    transition: color calc(0.2s * $cuil-animation-scale);
+  }
+
+  &[error] {
+    box-shadow: 0px 0px 4px 0px $cuil-danger;
+
+    &::placeholder {
+      color: $cuil-text-danger;
+    }
+  }
+
+  &[disabled] {
+    background-color: $cuil-background-dimmed;
+    color: $cuil-text-dimmed;
+    cursor: not-allowed;
+    box-shadow: 0px 0px 4px 0px $cuil-background-dimmed;
+  }
+
+  &:focus,
+  &:focus-visible {
+    box-shadow: 0px 0px 4px 1px $cuil-primary;
+
+    &::placeholder {
+      color: $cuil-text-dimmed;
+    }
+  }
+
+  &::selection {
+    background-color: $cuil-primary;
+    color: $cuil-background-vivid;
+  }
+
+  &::-webkit-datetime-edit-ampm-field:focus,
+  &::-webkit-datetime-edit-day-field:focus,
+  &::-webkit-datetime-edit-hour-field:focus,
+  &::-webkit-datetime-edit-millisecond-field:focus,
+  &::-webkit-datetime-edit-minute-field:focus,
+  &::-webkit-datetime-edit-month-field:focus,
+  &::-webkit-datetime-edit-second-field:focus,
+  &::-webkit-datetime-edit-week-field:focus,
+  &::-webkit-datetime-edit-year-field:focus,
+  &::-webkit-datetime-edit-text:focus {
+    background-color: $cuil-primary;
+  }
+}
+
+#{$class-prefix}button {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  padding: 0.5em 1.5em;
+  border-radius: $cuil-radius;
+  border: none;
+  color: $cuil-text;
+  background-color: transparent;
+  outline: none;
+  box-shadow: 0px 0px 4px 0px $cuil-background-vivid;
+  background-color: $cuil-background-vivid;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  transition: box-shadow calc(0.2s * $cuil-animation-scale);
+
+  &:focus,
+  &:focus-visible {
+    box-shadow: 0px 0px 4px 1px $cuil-primary;
+
+    &::placeholder {
+      color: $cuil-text-dimmed;
+    }
+  }
+
+  &:active {
+    box-shadow: 0px 0px 2px 0px $cuil-primary;
+  }
+}
+
+#{$class-prefix}select {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  padding: 0.5em 1.5em;
+  border-radius: $cuil-radius;
+  border: none;
+  color: $cuil-text;
+  background-color: transparent;
+  outline: none;
+  box-shadow: 0px 0px 4px 0px $cuil-background-vivid;
+  background-color: $cuil-background-vivid;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  transition: box-shadow calc(0.2s * $cuil-animation-scale);
+
+  &:focus,
+  &:focus-visible {
+    box-shadow: 0px 0px 4px 1px $cuil-primary;
+
+    &::placeholder {
+      color: $cuil-text-dimmed;
+    }
+  }
+
+  &:active {
+    box-shadow: 0px 0px 2px 0px $cuil-primary;
+  }
+}
+
+@keyframes cuil-background-translate {
+  0% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+#{$class-prefix}fieldset {
+  border-radius: $cuil-radius;
+  margin: 0;
+  padding: 0.5em 1em 1em 1em;
+}
+
+#{$class-prefix}input[type="checkbox"],
+#{$class-prefix}input[type="radio"] {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  border: none;
+  outline: none;
+  border-radius: $cuil-radius-sm;
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  box-shadow: 0px 0px 4px 0px $cuil-background-vivid;
+  margin-bottom: -0.15em;
+  margin-right: 0.25em;
+
+  background-clip: border-box;
+  background-image: linear-gradient(30deg,
+      $cuil-primary 0%,
+      $cuil-secondary 100%);
+  background-size: 300% 300%;
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+  transition: background-position calc(0.2s * $cuil-animation-scale);
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: calc(100% - 0.25em);
+    height: calc(100% - 0.25em);
+    inset: 0.125em;
+    background-color: $cuil-background-vivid;
+    border-radius: calc($cuil-radius-sm - 0.125em);
+    box-sizing: border-box;
+    border: 2px solid $cuil-background-vivid;
+  }
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    background-position: 100% 0%;
+  }
+
+  &:active::before {
+    scale: 0.9;
+  }
+
+  &:checked::before {
+    background-color: transparent;
+  }
+
+  &[error] {
+    background-image: linear-gradient(30deg,
+        $cuil-danger 0%,
+        $cuil-text-danger 100%);
+  }
+}
+
+#{$class-prefix}input[type="radio"] {
+  border-radius: 50%;
+
+  &::before {
+    border-radius: 50%;
+  }
+}
+
+#{$class-prefix}progress,
+#{$class-prefix}progress::-webkit-progress-bar {
+  border: none;
+  border-radius: $cuil-radius-sm;
+  height: 1em;
+  background-color: $cuil-background-dimmed;
+
+  &::-moz-progress-bar,
+  &::-webkit-progress-value,
+  &::progress-bar {
+    border-radius: $cuil-radius-sm;
+    background-image: linear-gradient(30deg,
+        $cuil-primary 0%,
+        $cuil-secondary 100%);
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+  }
+}
+
+#{$class-prefix}input[type="range"] {
+  appearance: none;
+  height: 1em;
+  border-radius: $cuil-radius-sm;
+  background-color: $cuil-background-dimmed;
+  cursor: pointer;
+
+  &::-moz-range-progress,
+  &::-webkit-slider-runnable-track,
+  &::-ms-fill-lower {
+    border-radius: $cuil-radius-sm;
+    background-image: linear-gradient(30deg,
+        $cuil-primary 0%,
+        $cuil-secondary 100%);
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+    appearance: none;
+    height: 1em;
+  }
+
+  &::-moz-range-thumb,
+  &::-webkit-slider-thumb {
+    appearance: none;
+    height: 120%;
+    transform: translateY(-8.3%);
+    width: 0.5em;
+    border: none;
+    outline: none;
+    border-radius: $cuil-radius-sm;
+    background-color: $cuil-background-vivid;
+    box-shadow: 0px 0px 4px 0px $cuil-background-vivid;
+    transition: shadow calc(0.2s * $cuil-animation-scale);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 2px 1px $cuil-background-dimmed;
+  }
+
+  &:hover,
+  &:focus {
+
+    &::-moz-range-thumb,
+    &::-webkit-slider-thumb {
+      box-shadow: 0px 0px 2px 1px $cuil-primary;
+    }
+  }
+}
+
+#{$class-prefix}input[type="submit"] {
+  appearance: none;
+  outline: none;
+  border: none;
+  background-color: $cuil-background-vivid;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  padding: 0.5em 1.5em;
+  border-radius: $cuil-radius;
+  border: none;
+  color: $cuil-text;
+  background-color: transparent;
+  outline: none;
+  box-shadow: 0px 0px 4px 0px $cuil-background-vivid;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  background-image: linear-gradient(30deg,
+      $cuil-danger 0%,
+      $cuil-secondary 40%,
+      $cuil-primary 60%,
+      $cuil-valid 100%);
+  background-size: 800% 800%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  color: white;
+  font-weight: 500;
+  transition: all calc(0.2s * $cuil-animation-scale);
+
+  &:hover,
+  &:focus {
+    background-position: 70% 50%;
+  }
+
+  &[error] {
+    background-position: 0% 50%;
+
+    &:hover,
+    &:focus {
+      background-position: 10% 50%;
+    }
+  }
+
+  &[valid] {
+    background-position: 100% 50%;
+
+    &:hover,
+    &:focus {
+      background-position: 90% 50%;
+    }
+  }
+
+  &:active {
+    background-size: 400% 400%;
+  }
+
+  &[disabled] {
+    background-color: $cuil-background-dimmed;
+    color: $cuil-text-dimmed;
+    cursor: not-allowed;
+    box-shadow: 0px 0px 4px 0px $cuil-background-dimmed;
+  }
+}
