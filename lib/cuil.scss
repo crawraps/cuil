@@ -1,12 +1,7 @@
-@use "sass:math";
-@import "./fonts";
-
-$prefix: "";
-
 $class-prefix: "";
 
-@if $prefix !="" {
-  $class-prefix: ".#{prefix}-";
+@if $prefix != "" {
+  $class-prefix: ".#{$prefix}-";
 }
 
 $cuil-radius: var(--cuil-radius, 0.5em);
@@ -31,9 +26,10 @@ $cuil-background: var(--cuil-background, #f5f5f5);
 $cuil-background-vivid: var(--cuil-background-vivid, #ffffff);
 $cuil-background-dimmed: var(--cuil-background-dimmed, #565656);
 
-body {
+#{$class-prefix}body {
   line-height: 1.6;
   color: $cuil-text;
+  font-family: "Poppins", sans-serif;
 }
 
 #{$class-prefix}h1,
@@ -202,10 +198,12 @@ figure #{$class-prefix}figcaption {
   }
 
   &:hover {
-    background-image: linear-gradient(30deg,
-        $cuil-text-accent 0%,
-        $cuil-text-valid 50%,
-        $cuil-text-accent 100%);
+    background-image: linear-gradient(
+      30deg,
+      $cuil-text-accent 0%,
+      $cuil-primary 50%,
+      $cuil-text-accent 100%
+    );
     background-size: 600% 600%;
     background-repeat: no-repeat;
     background-position: 0% 100%;
@@ -214,7 +212,8 @@ figure #{$class-prefix}figcaption {
     -webkit-text-fill-color: transparent;
 
     transition: font-weight calc(0.2s * $cuil-animation-scale);
-    animation: cuil-background-translate calc(2s * $cuil-animation-scale) infinite;
+    animation: cuil-background-translate calc(2s * $cuil-animation-scale)
+      infinite;
   }
 }
 
@@ -227,7 +226,9 @@ figure #{$class-prefix}figcaption {
   transition: color calc(0.2s * $cuil-animation-scale);
 }
 
-#{$class-prefix}input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="range"]),
+#{$class-prefix}input:not([type="checkbox"]):not([type="radio"]):not(
+    [type="range"]
+  ),
 #{$class-prefix}textarea {
   font-family: "Poppins", sans-serif;
   font-size: 1em;
@@ -247,6 +248,14 @@ figure #{$class-prefix}figcaption {
     color: $cuil-text-dimmed;
     font-size: 0.875em;
     transition: color calc(0.2s * $cuil-animation-scale);
+  }
+
+  &:hover {
+    box-shadow: -2px 0px 1px 0px $cuil-primary;
+
+    &::placeholder {
+      color: $cuil-text-dimmed;
+    }
   }
 
   &[error] {
@@ -308,6 +317,14 @@ figure #{$class-prefix}figcaption {
   cursor: pointer;
   transition: box-shadow calc(0.2s * $cuil-animation-scale);
 
+  &:hover {
+    box-shadow: 0px 1px 2px 0px $cuil-primary;
+
+    &::placeholder {
+      color: $cuil-text-dimmed;
+    }
+  }
+
   &:focus,
   &:focus-visible {
     box-shadow: 0px 0px 4px 1px $cuil-primary;
@@ -337,6 +354,14 @@ figure #{$class-prefix}figcaption {
   margin-bottom: 0.5em;
   cursor: pointer;
   transition: box-shadow calc(0.2s * $cuil-animation-scale);
+
+  &:hover {
+    box-shadow: 0px 1px 2px 0px $cuil-primary;
+
+    &::placeholder {
+      color: $cuil-text-dimmed;
+    }
+  }
 
   &:focus,
   &:focus-visible {
@@ -385,9 +410,11 @@ figure #{$class-prefix}figcaption {
   margin-right: 0.25em;
 
   background-clip: border-box;
-  background-image: linear-gradient(30deg,
-      $cuil-primary 0%,
-      $cuil-secondary 100%);
+  background-image: linear-gradient(
+    30deg,
+    $cuil-primary 0%,
+    $cuil-secondary 100%
+  );
   background-size: 300% 300%;
   background-repeat: no-repeat;
   background-position: 0% 100%;
@@ -421,9 +448,11 @@ figure #{$class-prefix}figcaption {
   }
 
   &[error] {
-    background-image: linear-gradient(30deg,
-        $cuil-danger 0%,
-        $cuil-text-danger 100%);
+    background-image: linear-gradient(
+      30deg,
+      $cuil-danger 0%,
+      $cuil-text-danger 100%
+    );
   }
 }
 
@@ -443,12 +472,13 @@ figure #{$class-prefix}figcaption {
   background-color: $cuil-background-dimmed;
 
   &::-moz-progress-bar,
-  &::-webkit-progress-value,
-  &::progress-bar {
+  &::-webkit-progress-value {
     border-radius: $cuil-radius-sm;
-    background-image: linear-gradient(30deg,
-        $cuil-primary 0%,
-        $cuil-secondary 100%);
+    background-image: linear-gradient(
+      30deg,
+      $cuil-primary 0%,
+      $cuil-secondary 100%
+    );
     background-size: 200% 100%;
     background-repeat: no-repeat;
     background-position: left;
@@ -466,9 +496,11 @@ figure #{$class-prefix}figcaption {
   &::-webkit-slider-runnable-track,
   &::-ms-fill-lower {
     border-radius: $cuil-radius-sm;
-    background-image: linear-gradient(30deg,
-        $cuil-primary 0%,
-        $cuil-secondary 100%);
+    background-image: linear-gradient(
+      30deg,
+      $cuil-primary 0%,
+      $cuil-secondary 100%
+    );
     background-size: 200% 100%;
     background-repeat: no-repeat;
     background-position: left;
@@ -485,7 +517,7 @@ figure #{$class-prefix}figcaption {
     border: none;
     outline: none;
     border-radius: $cuil-radius-sm;
-    background-color: $cuil-background-vivid;
+    background-color: $cuil-text;
     box-shadow: 0px 0px 4px 0px $cuil-background-vivid;
     transition: shadow calc(0.2s * $cuil-animation-scale);
   }
@@ -497,7 +529,6 @@ figure #{$class-prefix}figcaption {
 
   &:hover,
   &:focus {
-
     &::-moz-range-thumb,
     &::-webkit-slider-thumb {
       box-shadow: 0px 0px 2px 1px $cuil-primary;
@@ -505,7 +536,7 @@ figure #{$class-prefix}figcaption {
   }
 }
 
-#{$class-prefix}input[type="submit"] {
+#{$class-prefix}button[type="submit"] {
   appearance: none;
   outline: none;
   border: none;
@@ -522,21 +553,28 @@ figure #{$class-prefix}figcaption {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   cursor: pointer;
-  background-image: linear-gradient(30deg,
-      $cuil-danger 0%,
-      $cuil-secondary 40%,
-      $cuil-primary 60%,
-      $cuil-valid 100%);
-  background-size: 800% 800%;
+  background-image: linear-gradient(
+    30deg,
+    $cuil-danger 0%,
+    $cuil-secondary 40%,
+    $cuil-primary 60%,
+    $cuil-valid 100%
+  );
+  background-size: 600% 600%;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   color: white;
   font-weight: 500;
   transition: all calc(0.2s * $cuil-animation-scale);
+  position: relative;
 
   &:hover,
   &:focus {
     background-position: 70% 50%;
+
+    &::after {
+      background-size: 60px 60px;
+    }
   }
 
   &[error] {
@@ -559,6 +597,11 @@ figure #{$class-prefix}figcaption {
 
   &:active {
     background-size: 400% 400%;
+
+    &::after {
+      opacity: 0.7;
+      background-size: 40px 40px;
+    }
   }
 
   &[disabled] {
@@ -566,5 +609,20 @@ figure #{$class-prefix}figcaption {
     color: $cuil-text-dimmed;
     cursor: not-allowed;
     box-shadow: 0px 0px 4px 0px $cuil-background-dimmed;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: $cuil-radius;
+    inset: 0;
+    background-size: 50px 50px;
+    opacity: 0.5;
+    background-image: url(https://raw.githubusercontent.com/crawraps/cuil/refs/heads/main/assets/noise.png);
+    background-position: center;
+    transition: all calc(0.2s * $cuil-animation-scale);
   }
 }

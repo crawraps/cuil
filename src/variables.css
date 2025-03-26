@@ -12,7 +12,7 @@ body {
 
   --cuil-background: #f9f9f9;
   --cuil-background-vivid: #ffffff;
-  --cuil-background-dimmed: #dddddd;
+  --cuil-background-dimmed: #eeeeee;
 
   --cuil-valid: #82e0aa;
   --cuil-text-valid: #356e4d;
@@ -24,9 +24,9 @@ body {
 body[dark] {
   --cuil-text: #f1f1f1;
   --cuil-text-accent: #cacaf6;
-  --cuil-text-dimmed: #565656;
+  --cuil-text-dimmed: #d0d0d0;
 
-  --cuil-background: #333333;
-  --cuil-background-vivid: #222222;
-  --cuil-background-dimmed: #555555;
+  --cuil-background: #222222;
+  --cuil-background-vivid: #1e1e1e;
+  --cuil-background-dimmed: #333333;
 }

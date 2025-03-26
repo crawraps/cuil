@@ -401,9 +401,9 @@ document.querySelector('#root')!.innerHTML = `
     </div>
     
     <div class="tag-card">
-        <div class="tag-name">type="submit"</div>
+        <div class="tag-name">button.type="submit"</div>
         <div class="tag-description">Submit button</div>
-        <div class="tag-example" style="display: flex; gap: 8px"><input type="submit" value="Submit"><input type="submit" valid value="Valid"><input type="submit" error value="Error"></div>
+        <div class="tag-example" style="display: flex; gap: 8px"><button type="submit">Submit</button><button type="submit" valid>Valid</button><button type="submit" error>Error</button></div>
     </div>
 </div>
 `

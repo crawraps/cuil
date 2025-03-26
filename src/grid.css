@@ -3,7 +3,6 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  color: #333;
   background-color: var(--cuil-background);
 }
 
@@ -28,7 +27,8 @@ body {
 .tag-name {
   font-weight: bold;
   font-family: monospace;
-  background-color: #e9e9e9;
+  background-color: var(--cuil-background-dimmed);
+  color: var(--cuil-text-dimmed);
   padding: 3px 6px;
   border-radius: 3px;
   margin-bottom: 10px;
@@ -38,7 +38,7 @@ body {
 .tag-description {
   font-size: 0.9em;
   margin-bottom: 10px;
-  color: #555;
+  color: var(--cuil-text-dimmed);
 }
 
 .tag-example {
@@ -55,5 +55,5 @@ body {
   margin-bottom: 10px;
   padding-bottom: 5px;
   border-bottom: 2px solid #ddd;
-  color: #444;
+  color: var(--cuil-text);
 }
