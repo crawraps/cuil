@@ -333,6 +333,13 @@ figure #{$class-prefix}figcaption {
   &:active {
     box-shadow: 0px 0px 2px 0px $cuil-primary;
   }
+
+  &[disabled] {
+    background-color: $cuil-background-dimmed;
+    color: $cuil-text-dimmed;
+    cursor: not-allowed;
+    box-shadow: 0px 0px 4px 0px $cuil-background-dimmed;
+  }
 }
 
 #{$class-prefix}select {
