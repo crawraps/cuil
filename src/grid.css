@@ -2,13 +2,49 @@ body {
   line-height: 1.6;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 1rem;
   background-color: var(--cuil-background);
+  overflow-x: hidden;
 }
 
-.heading {
-  text-align: center;
-  margin-bottom: 30px;
+.heading-controls {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  button {
+    margin-top: 0.75rem;
+  }
+
+  .heading {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+#preview-container {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+
+  & > div {
+    transition: transform 0.2s ease-in-out;
+    width: 100%;
+    flex-grow: 1;
+    position: absolute;
+  }
+}
+
+.page-title {
+  font-size: 2em;
+  margin: 0;
+
+  & + h3 {
+    margin-top: 0;
+  }
 }
 
 .tag-grid {

@@ -1,0 +1,7 @@
+{
+  "name": "@cuil/css",
+  "author": "crawraps",
+  "version": "0.0.1",
+  "private": false,
+  "type": "module"
+}

@@ -4,17 +4,23 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build-css": "CSS_ONLY=true rsbuild build && rimraf dist/static dist/cssOnly.html",
+    "build-css": "PACKAGE=css rslib build && rimraf dist/index.cjs dist/index.js",
     "check": "biome check --write",
-    "dev": "rsbuild dev",
-    "format": "biome format --write"
+    "dev": "rsbuild dev --config ./rslib.config.ts",
+    "format": "biome format --write",
+    "publish": "cd dist && npm publish --access public"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "@microsoft/api-extractor": "^7.52.2",
     "@rsbuild/core": "^1.2.16",
     "@rsbuild/plugin-sass": "^1.2.2",
+    "@rslib/core": "^0.6.1",
     "@types/node": "^22.13.13",
     "rimraf": "^6.0.1",
     "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@lottiefiles/dotlottie-web": "^0.41.0"
   }
 }
