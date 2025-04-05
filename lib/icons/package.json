@@ -1,0 +1,14 @@
+{
+  "name": "@cuil/icons",
+  "author": "crawraps",
+  "version": "0.0.1",
+  "private": false,
+  "type": "module",
+  "dependencies": {
+    "@lottiefiles/dotlottie-web": "^0.41.0"
+  },
+  "exports": {
+    "import": "./index.js",
+    "require": "./index.cjs"
+  }
+}
