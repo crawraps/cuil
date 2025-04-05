@@ -38,12 +38,8 @@ Currently available icons:
 
 ## Build
 
-### Stylesheet mode
-
-To build the result stylesheet you need to run `build-icons` script. 
+Run the following command to build @cuil/icons package
 
 ```console
-$ npm run build-css
+$ npm run build-icons
 ```
-
-You can find the result .css file named `index.css` in the ./dist directory.
