@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build-css": "PACKAGE=css rslib build && rimraf dist/index.cjs dist/index.js",
+    "build-icons": "PACKAGE=icons rslib build",
     "check": "biome check --write",
     "dev": "rsbuild dev --config ./rslib.config.ts",
     "format": "biome format --write",
